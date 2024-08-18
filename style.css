@@ -1,0 +1,120 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+html {
+  font-size: 62.5%;
+}
+body {
+  font-family: sans-serif;
+}
+.cont {
+  background-color: #74c0fc;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+}
+.temperature-convertor {
+  background-color: #ddd;
+  padding: 2.4rem 4.8rem;
+  border-radius: 11px;
+  width: 70rem;
+}
+.btn {
+  display: block;
+  width: 90%;
+  font-size: 2rem;
+  margin: 0 auto;
+  background-color: #38d9a9;
+  text-align: center;
+  padding: 1.2rem 0;
+  margin-bottom: 2.4rem;
+  border-radius: 11px;
+  transition: all 0.3s;
+}
+input,
+select {
+  width: 100%;
+  padding: 1.2rem;
+  font-size: 1.8rem;
+  font-family: inherit;
+  color: inherit;
+  background-color: #fdf2e9;
+  border-radius: 9px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+.btn:hover {
+  background-color: #63e6be;
+}
+.heading {
+  font-size: 3.6rem;
+  font-family: "Sedan";
+  margin-bottom: 2.4rem;
+}
+.temperature-text {
+  margin-bottom: 2rem;
+  font-size: 1.8rem;
+  line-height: 1.8rem;
+  color: #333;
+  margin-bottom: 3.2rem;
+}
+.select {
+  display: flex;
+  gap: 1.4rem;
+  margin-bottom: 2rem;
+}
+.icon {
+  width: 2.4rem;
+  height: 2.4rem;
+}
+.icon--cold {
+  color: #3bc9db;
+}
+.icon--moderate {
+  color: #ff922b;
+}
+.icon--hot {
+  color: #d9480f;
+  /* color: #e03131; */
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+td {
+  border: 1px solid #343a40;
+  padding: 1rem 2rem;
+  text-align: center;
+  font-size: 1.8rem;
+}
+/* cold */
+.cold {
+  background-color: #99e9f2;
+}
+/* moderate */
+.moderate {
+  background-color: #ffd8a8;
+}
+/* hot */
+.hot {
+  background-color: #ffa94d;
+}
+
+.results {
+  margin-bottom: 2rem;
+  display: flex;
+  height: 4.5rem;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+}
+.results p {
+  display: inline-block;
+}
+#numberList {
+  list-style: none;
+}

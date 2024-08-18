@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Temperature converter</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="icon" href="thermometer.svg" type="image/icon type" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Anek+Devanagari:wght@100..800&family=Sedan:ital@0;1&display=swap"
+      rel="stylesheet"
+    />
+    <script src="temp.js"></script>
+    <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
+  </head>
+  <body>
+    <div class="cont">
+      <div class="temperature-convertor">
+        <h1 class="heading">Temperature Converter</h1>
+        <div class="temperature-text">
+          <p>
+            Welcome to our temperature converter website! You can convert
+            temperatures between Kelvin, Celsius, and Fahrenheit with ease. Just
+            enter the temperature and select the units for instant conversions
+          </p>
+        </div>
+        <form id="temp-form">
+          <div class="select">
+            <select name="" id="optionz" required>
+              <option value="">Please select one option</option>
+              <option value="Celcius">Celcius (&deg;C)</option>
+              <option value="Fahrenheit">Fahrenheit (&deg;F)</option>
+              <option value="Kelvin">Kelvin (K)</option>
+            </select>
+            <input
+              type="number"
+              id="input"
+              required
+              placeholder="Enter value here"
+            />
+          </div>
+          <button type="submit" class="btn">Convert</button>
+          <div class="results">
+            <ul id="numberList"></ul>
+          </div>
+        </form>
+        <table>
+          <tr>
+            <td><ion-icon name="snow" class="icon icon--cold"></ion-icon></td>
+            <td>
+              <ion-icon name="flame" class="icon icon--moderate"></ion-icon>
+            </td>
+            <td><ion-icon name="flame" class="icon icon--hot"></ion-icon></td>
+          </tr>
+          <tr>
+            <td>Cold</td>
+            <td>Moderate</td>
+            <td>Hot</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <script>
+      document
+        .getElementById("temp-form")
+        .addEventListener("submit", function (event) {
+          event.preventDefault();
+
+          var Input = document.getElementById("input");
+          var number = Input.value;
+
+          var selectElement = document.getElementById("optionz");
+          var selectedValue = selectElement.value;
+          var celcius = 0;
+
+          numberList.innerHTML = "";
+          if (selectedValue == "Celcius") {
+            // fara
+            celcius = number;
+            var temp1 = Math.round(number * (9 / 5) + 32);
+            // kelvin
+            var temp2 = Math.round(number * 1 + 273.15);
+            temp2 = "Kelvin      : " + temp2;
+            temp1 = "Fahrenheit  : " + temp1;
+          } else if (selectedValue == "Kelvin") {
+            // cel
+            var temp2 = Math.round(number * 1 - 273.15);
+            celcius = temp2;
+            // far
+            var temp1 = Math.round(temp2 * (9 / 5) + 32);
+            temp1 = "Fahrenheit  : " + temp1;
+            temp2 = "Celcius     : " + temp2;
+          } else {
+            // cel
+            var temp1 = Math.round((5 / 9) * (number * 1 - 32));
+            celcius = temp1;
+            // kel
+            var temp2 = Math.round(temp1 * 1 + 273.15);
+            temp1 = "Celcius    : " + temp1;
+            temp2 = "Kelvin     : " + temp2;
+          }
+          var first = document.querySelector("table tr td:nth-child(1)");
+          var second = document.querySelector("table tr td:nth-child(2)");
+          var third = document.querySelector("table tr td:nth-child(3)");
+
+          first.classList.remove("cold");
+          second.classList.remove("moderate");
+          third.classList.remove("hot");
+
+          if (celcius < 10) {
+            first.classList.add("cold");
+          } else if (celcius > 29) {
+            third.classList.add("hot");
+          } else {
+            second.classList.add("moderate");
+          }
+
+          var li1 = document.createElement("li");
+          li1.textContent = temp1;
+          document.getElementById("numberList").appendChild(li1);
+
+          var li2 = document.createElement("li");
+          li2.textContent = temp2;
+          document.getElementById("numberList").appendChild(li2);
+        });
+    </script>
+  </body>
+</html>
